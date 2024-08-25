@@ -14,6 +14,17 @@ public class LoginTest extends BaseTest {
         sleep(3000);
     }
 
+    @Test(description = " kullanıcı girişi kontrolü")
+    public void successfulLogin() throws InterruptedException {
+        webDriver.get("https://inone.useinsider.com/login");
+        sleep(2000);
+        homePage
+                .emailDoldur(email)
+                .passwordDoldur(password)
+                .loginTikla();
+
+    }
+
     @Test(description = "Hatalı kullanıcı girişi kontrolü")
     public void notValidLogin() throws InterruptedException {
         webDriver.get("https://inone.useinsider.com/login");
@@ -76,7 +87,7 @@ public class LoginTest extends BaseTest {
                 .passwordDoldur("2")
                 .loginTikla();
         sleep(3000);
-       // homePage.mailHataKontrolu(bosMailMessage);
+        // homePage.mailHataKontrolu(bosMailMessage);
         homePage.emailTemizle();
         sleep(2000);
         homePage.emailDoldur(email)
@@ -96,12 +107,36 @@ public class LoginTest extends BaseTest {
         sleep(3000);
         homePage.loginTikla();
         Thread.sleep(3000);
-       // homePage.mailHataKontrolu(bosMailMessage);
+        // homePage.mailHataKontrolu(bosMailMessage);
         sleep(3000);
         homePage.emailTemizle()
                 .passwordTemizle()
                 .emailDoldur(email)
                 .loginTikla();
         sleep(3000);
+    }
+
+    @Test(description = "Login With SSO Button Control")
+    public void loginSSOButtonControl() throws InterruptedException {
+        webDriver.get("https://inone.useinsider.com/login");
+        sleep(2000);
+        homePage.loginWithSSOButton();
+        sleep(2000);
+    }
+
+    @Test(description = " Forgot Your Password? Button Control")
+    public void resetPasswordButtonControl() throws InterruptedException {
+        webDriver.get("https://inone.useinsider.com/login");
+        sleep(2000);
+        homePage.resetPasswordButton();
+        sleep(2000);
+    }
+
+    @Test
+    public void neverRegesteredButtonControl() throws InterruptedException {
+        webDriver.get("https://inone.useinsider.com/login");
+        sleep(2000);
+        homePage.neverRegesteredBeforeButton();
+        sleep(5000);
     }
 }

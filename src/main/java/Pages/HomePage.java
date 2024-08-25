@@ -65,4 +65,19 @@ public class HomePage extends BaseLibrary {
         webDriver.findElement(By.id("password")).clear();
         return this;
     }
+
+    public HomePage loginWithSSOButton(){
+        webDriver.findElement(By.id("sso-login-button")).click();
+        return this;
+    }
+
+    public HomePage resetPasswordButton(){
+        webDriver.findElement(By.id("reset-password")).click();
+        return this;
+    }
+
+    public HomePage neverRegesteredBeforeButton(){
+        webDriver.findElement(By.id("never-registered")).click();
+        return this;
+    }
 }
