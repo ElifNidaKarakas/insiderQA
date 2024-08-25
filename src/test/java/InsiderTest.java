@@ -7,27 +7,23 @@ public class InsiderTest extends BaseTest {
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
 
-    //Visit https://useinsider.com/ and check Insider home page is opened or not
     @Test(description = "Insider Link Kontrolü")
     public void insiderLinkControl() throws InterruptedException {
         webDriver.get("https://useinsider.com/");
         sleep(2000);
     }
 
-    //Select the “Company” menu in the navigation bar, select “Careers” and check Career page, its Locations, Teams, and Life at Insider blocks are open or not
     @Test(description = "Company Buton Kontrolü")
     public void companyButonControl() throws InterruptedException {
         webDriver.get("https://useinsider.com/");
         sleep(2000);
         mainPage.acceptAllButonClick();
-        Thread.sleep(2000);
+        sleep(2000);
         loginPage.companyButton();
-        Thread.sleep(2000);
+        sleep(2000);
         loginPage.careersButton();
     }
 
-    //Go to https://useinsider.com/careers/quality-assurance/, click “See all QA jobs”, filter jobs by Location:
-    // “Istanbul, Turkey”, and Department: “Quality Assurance”, check the presence of the job list
     @Test
     public void filterJob() throws InterruptedException {
         webDriver.get("https://useinsider.com/careers/quality-assurance/");
@@ -43,11 +39,10 @@ public class InsiderTest extends BaseTest {
         loginPage.departmentDropdown();
         sleep(2000);
         loginPage.departmentClick();
-        sleep(10000);
+        sleep(5000);
     }
 
-    //Check that all jobs’ Position contains “Quality Assurance”, Department contains “Quality Assurance”, and Location contains “Istanbul, Turkey”
-    @Test
+      @Test
     public void jobListControl() throws InterruptedException {
         webDriver.get("https://useinsider.com/careers/quality-assurance/");
         sleep(2000);
@@ -67,8 +62,7 @@ public class InsiderTest extends BaseTest {
         sleep(1000);
     }
 
-    //Click the “View Role” button and check that this action redirects us to the Lever Application form page
-    @Test
+  @Test
     public void voiwRollerButtonLinkControl() throws InterruptedException {
         webDriver.get("https://useinsider.com/careers/quality-assurance/");
         sleep(2000);

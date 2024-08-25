@@ -1,17 +1,17 @@
 package Pages;
 
 import Base.BaseLibrary;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import io.qameta.allure.Step;
 
 import java.util.List;
 
 public class LoginPage extends BaseLibrary {
+
     @Step("Click on the Company button.")
     public LoginPage companyButton() {
         webDriver.findElements(By.id("navbarDropdownMenuLink")).get(4).click();
-
         return this;
     }
 
